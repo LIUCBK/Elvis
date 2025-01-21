@@ -8,12 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var message = ""
+    @State var pic = ""
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("What's So Funny 'Bout")
+                .font(.largeTitle)
+                .foregroundStyle(.purple)
+                .fontWeight(.black)
+            Spacer()
+            
+            Image(systemName:pic)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 300)
+            
+            Text(message)
+                .font(.largeTitle)
+                .foregroundStyle(.purple)
+                .fontWeight(.black)
+            Spacer()
+            
+            HStack{
+                Button("Peace"){
+                    pic = "peacesign"
+                    message = "Peace"
+                }
+                Button("Love"){
+                    pic = "heart"
+                    message = "Love"
+                }
+                Button("Understanding"){
+                    pic = "lightbulb"
+                    message = "Understanding"
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.purple)
+            
         }
         .padding()
     }
